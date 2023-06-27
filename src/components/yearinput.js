@@ -6,6 +6,7 @@ function YearInput({ onYearChange }) {
     const currentYear = new Date().getFullYear();
   const [year, setYear] = useState(currentYear);
 
+  // captura el evento para renderizar segun el año ingresado y envia por props para recalcular 
   const handleYearChange = (event) => {
     const newYear = event.target.value;
     setYear(newYear);
