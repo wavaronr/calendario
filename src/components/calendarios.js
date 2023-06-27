@@ -3,7 +3,6 @@ import "../css/calendario.css";
 import holydays from "./holydays.js";
 import { useEffect, useState } from "react";
 function Calendarios(props) {
-
   const [colombianHolydays, setColombianHolydays] = useState([]);
   const monthCalendario = props.mesProps; // recibe el mes de CardsCald.js para rendering
 
@@ -19,7 +18,7 @@ function Calendarios(props) {
   }, [yearSet]);
 
   //colombianHolydays = holydays(yearSet); // recibe los festivos de holydays para pintar de color diferente
-  console.log(colombianHolydays)
+  console.log(colombianHolydays);
 
   // se suma a monthCalendar 1 para obtener el dia anterior al siguiente mes
   const cantidadDias = new Date(yearSet, monthCalendario + 1, 0).getDate();
@@ -40,7 +39,21 @@ function Calendarios(props) {
         {/* dias semana a semana  */}
         {dias.map((dia) =>
           dia === 1 ? (
-            <li className="firstday" style={{ gridColumnStart: dayStart }}>
+            <li
+              className="firstday"
+              style={
+                colombianHolydays.some(
+                  (festivo) =>
+                    festivo.dia === dia && festivo.mes === monthCalendario
+                )
+                  ? {
+                      color: "red",
+                      fontWeight: "bold",
+                      gridColumnStart: dayStart,
+                    }
+                  : { gridColumnStart: dayStart }
+              }
+            >
               1
             </li>
           ) : (
