@@ -5,7 +5,6 @@ export const holydays = async (year) => {
   const response = await fetch(url);
   if (response.ok) {
     const data = await response.json();
-    console.log(data, response);
     data?.forEach((item) => {
       const fechaArray = item.date.split("-");
       const diaF = parseInt(fechaArray[2]);

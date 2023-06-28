@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import { holydays } from "./holydays.js";
 import "../css/calendario.css";
+import FirstDay from "./FirstDay.js";
 
 function Calendarios(props) {
   const [colombianHolydays, setColombianHolydays] = useState([]);
@@ -18,15 +18,12 @@ function Calendarios(props) {
     fetchData();
   }, [yearSet]);
 
-  //colombianHolydays = holydays(yearSet); // recibe los festivos de holydays para pintar de color diferente
-  console.log(colombianHolydays);
-
   // se suma a monthCalendar 1 para obtener el dia anterior al siguiente mes
   const cantidadDias = new Date(yearSet, monthCalendario + 1, 0).getDate();
 
   const dias = Array.from({ length: cantidadDias }, (_, index) => index + 1); // genera el array segun la cantidad de dias del mes
   const diasTitle = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
-  const dayStart = new Date(yearSet, monthCalendario, 1).getUTCDay() + 1; // retorna el primer dia de la semana sumando 1 unidad
+  //const dayStart = new Date(yearSet, monthCalendario, 1).getUTCDay() + 1; // retorna el primer dia de la semana sumando 1 unidad
 
   return (
     <div className="calendar">
@@ -38,25 +35,15 @@ function Calendarios(props) {
           </li>
         ))}
         {/* dias semana a semana  */}
+
         {dias.map((dia) =>
           dia === 1 ? (
-            <li
-              className="firstday"
-              style={
-                colombianHolydays.some(
-                  (festivo) =>
-                    festivo.dia === dia && festivo.mes === monthCalendario
-                )
-                  ? {
-                      color: "red",
-                      fontWeight: "bold",
-                      gridColumnStart: dayStart,
-                    }
-                  : { gridColumnStart: dayStart }
-              }
-            >
-              1
-            </li>
+            <FirstDay
+              dia={dia}
+              colombianHolydays={holydays}
+              monthCalendario={monthCalendario}
+              yearSet={yearSet}
+            />
           ) : (
             <li
               className="weekDays"
