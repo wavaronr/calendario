@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import { holydays } from "./holydays.js";
 import "../css/calendario.css";
-import holydays from "./holydays.js";
-import { useEffect, useState } from "react";
+
 function Calendarios(props) {
   const [colombianHolydays, setColombianHolydays] = useState([]);
   const monthCalendario = props.mesProps; // recibe el mes de CardsCald.js para rendering
