@@ -40,7 +40,7 @@ function Calendarios(props) {
           dia === 1 ? (
             <FirstDay
               dia={dia}
-              colombianHolydays={holydays}
+              colombianHolydays={colombianHolydays}
               monthCalendario={monthCalendario}
               yearSet={yearSet}
             />

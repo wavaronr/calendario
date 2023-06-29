@@ -28,15 +28,15 @@ function CardsCald() {
 
   return (
     <>
-      <YearInput onYearChange={handleYearChange}  />
+      <YearInput onYearChange={handleYearChange} />
       <div className="card-content">
         {months.map((mes) => (
-          <div className="card" style={{ width: "18rem" }}>
+          <div className="card" style={{ width: "18rem" }} key={mes.toString()}>
             <div className="card-body">
               <h5 className="card-title">{mes}</h5>
-              <p className="card-text">
-                <Calendarios mesProps={months.indexOf(mes)} yearSet={yearSet} />
-              </p>
+              {/* <p className="card-text"> */}
+              <Calendarios mesProps={months.indexOf(mes)} yearSet={yearSet} />
+              {/* </p> */}
             </div>
           </div>
         ))}
