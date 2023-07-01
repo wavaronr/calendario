@@ -6,7 +6,6 @@
     display: grid;
     grid-template-columns: repeat(7,1fr); 
     border-radius: 10px;
-    
 }
 
 ol{
@@ -23,7 +22,6 @@ ol{
 
 .firstday{
     grid-column-start: var(--dayStart);
-    /* background-color: aqua; */
 }
 
 .dayLetter{
@@ -62,73 +60,4 @@ ol{
     font-size: 30px;
     text-align: center;
     left: 60px;
-
-  }
-
-  
-  
-                    
-  
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }                         
