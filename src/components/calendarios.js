@@ -20,7 +20,7 @@ function Calendarios({ mesProps, yearSet }) {
   const countDays = new Date(yearSet, monthCalendario + 1, 0).getDate();
 
   const days = Array.from({ length: countDays }, (_, index) => index + 1); // genera el array segun la cantidad de dias del mes
-  const daysTitle = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+  const daysTitle = [ "Lun", "Mar", "Mie", "Jue", "Vie", "Sab","Dom"];
 
   return (
     <div className="calendar">

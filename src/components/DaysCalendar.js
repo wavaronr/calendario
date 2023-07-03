@@ -6,8 +6,9 @@ function DaysCalendar({ day, colombianHolidays, monthCalendario, yearSet }) {
   const isHoliday = colombianHolidays.some(
     (festivo) => festivo.dia === day && festivo.mes === monthCalendario
   );
-  const dayStart = new Date(yearSet, monthCalendario, 1).getUTCDay() + 1; // retorna el primer dia de la semana sumando 1 unidad
-
+  const dayStartCalendar =new Date(yearSet, monthCalendario, 1).getUTCDay()
+  const dayStart = dayStartCalendar===0?7:dayStartCalendar; // retorna el primer dia de la semana sumando 1 unidad
+    
   const listItemStyle = {
     ...(isHoliday && { color: "red", fontWeight: "bold" }),
     ...(isFirstDay && { gridColumnStart: dayStart }),
