@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { holydays } from "./holydays.js";
+import { holidays } from "./holidays.js";
 import "../css/calendario.css";
 import DaysCalendar from "./DaysCalendar.js";
-
+import WeekCount from "./WeekCount.js";
 function Calendarios({ mesProps, yearSet }) {
-  const [colombianHolydays, setColombianHolydays] = useState([]);
+  const [colombianHolidays, setColombianHolidays] = useState([]);
   const monthCalendario = mesProps; // recibe el mes de CardsCald.js para rendering
 
   useEffect(() => {
     const fetchData = async () => {
-      const holydaysData = await holydays(yearSet);
-      setColombianHolydays(holydaysData);
+      const holidaysData = await holidays(yearSet);
+      setColombianHolidays(holidaysData);
     };
 
     fetchData();
@@ -24,6 +24,7 @@ function Calendarios({ mesProps, yearSet }) {
 
   return (
     <div className="calendar">
+      <WeekCount monthCalendario={monthCalendario} yearSet={yearSet} />
       <ol className="ol">
         {daysTitle.map((dayL) => (
           <li className="dayLetter" key={dayL}>
@@ -34,7 +35,7 @@ function Calendarios({ mesProps, yearSet }) {
           <DaysCalendar
             key={day}
             day={day}
-            colombianHolydays={colombianHolydays}
+            colombianHolidays={colombianHolidays}
             monthCalendario={monthCalendario}
             yearSet={yearSet}
           />

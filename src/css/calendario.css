@@ -1,19 +1,39 @@
 .calendar{
     background-color:none;   
+    display:grid;
+    grid-template-columns: repeat(2,1fr); 
+    gap: 10px;  
 }
 .ol{
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(7,1fr); 
+    grid-template-columns: repeat(7 ,1fr); 
     border-radius: 10px;
-}
-
-ol{
     border: 1px solid rgba(0, 0, 0, 0.39);
     border-radius: 10px;
     padding: 5px;
     background-color: none;
 }
+.numerWeek{
+    background-color: none;
+    grid-template-columns: repeat(1,1fr); 
+    display: grid;
+    list-style: none;
+    border: 1px solid rgba(0, 0, 0, 0.39);
+    border-radius: 5px;
+    place-items: center;
+    padding-right: 3px;
+    padding-left: 0;
+    font-size: small;
+}
+.numerW-title{
+    background-color: rgb(17, 1, 107);
+    color: rgb(255, 251, 251) ;
+    border-radius: 3px;
+    font-size:15px;
+    padding-left: 1px;
+}
+
 
 .card{
   border: 1px solid black;
