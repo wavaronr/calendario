@@ -1,4 +1,7 @@
+import ProfileAsesor from "./ProfileAsesor";
 function asesorOffCanvas() {
+
+
   return (
     <div
       class="offcanvas offcanvas-start"
@@ -9,7 +12,7 @@ function asesorOffCanvas() {
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-          Titlte
+          Asesores
         </h5>
         <button
           type="button"
@@ -19,7 +22,7 @@ function asesorOffCanvas() {
         ></button>
       </div>
       <div class="offcanvas-body">
-        <p>profiles </p>
+        <ProfileAsesor/>
       </div>
     </div>
   );
