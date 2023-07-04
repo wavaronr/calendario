@@ -2,22 +2,22 @@ function ProfileAsesor() {
     const profiles = [
       {
         name: "Juan Perez",
-        cargo: "Descripción del perfil 1",
+        cargo: "Gestor de servicios I",
         buttons: ["Botón 1", "Botón 2"]
       },
       {
         name: "Pedro Gonzalez",
-        cargo: "Descripción del perfil 2",
+        cargo: "Gestor de servicios II",
         buttons: ["Botón 3", "Botón 4"]
       },
       {
         name: "Luis Rodriguez",
-        cargo: "Descripción del perfil 3",
+        cargo: "Gestor de servicios III",
         buttons: ["Botón 5", "Botón 6"]
       },
       {
         name: "Jose Rodriguez",
-        cargo: "Descripción del perfil 4",
+        cargo: "Gestor de servicios I",
         buttons: ["Botón 7", "Botón 8"]
       }
     ];
@@ -26,10 +26,14 @@ function ProfileAsesor() {
       <>
         {profiles.map((profile, index) => (
           <div className="card" key={index}>
-            <h5 className="card-title">{profile.name}</h5>
+            <h5 className="card-title">Zona {index+1}</h5>
             <div className="card-body">
-              <p className="card-text">{profile.cargo}</p>
-              {profile.buttons.map((button, buttonIndex) => (
+              <p className="card-text">
+                Asesor: {profile.name}
+                <br />
+                Cargo: {profile.cargo}
+                </p>
+                {profile.buttons.map((button, buttonIndex) => (
                 <button className="btn btn-outline-primary" key={buttonIndex}>
                   {button}
                 </button>
