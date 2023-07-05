@@ -17,9 +17,9 @@ function WeekCount({ monthCalendario, yearSet }) {
     <ol className="numerWeek">
       <li className="numerW-title">Sem</li>
       {weekNumbers.map((weekNumber) => (
-        <li className="numerW" key={weekNumber.toString}>
+        <li className="numerW" key={weekNumber+"-"+monthCalendario}>
           <button
-            class="btn numerW"
+            className="btn numerW"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasWithBothOptions"
