@@ -24,16 +24,16 @@ function ProfileAsesor() {
   
     return (
       <>
-        {profiles.map((profile, index) => (
+        {profiles.map(({name,cargo,buttons}, index) => (
           <div className="card" key={index}>
             <h5 className="card-title">Zona {index+1}</h5>
             <div className="card-body">
               <p className="card-text">
-                Asesor: {profile.name}
+                Asesor: {name}
                 <br />
-                Cargo: {profile.cargo}
+                Cargo: {cargo}
                 </p>
-                {profile.buttons.map((button, buttonIndex) => (
+                {buttons.map((button, buttonIndex) => (
                 <button className="btn btn-outline-primary" key={buttonIndex}>
                   {button}
                 </button>
