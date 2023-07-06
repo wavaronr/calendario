@@ -1,26 +1,7 @@
+import getRandomProfile from "./getRandomProfile"
+
 function ProfileAsesor() {
-    const profiles = [
-      {
-        name: "Juan Perez",
-        cargo: "Gestor de servicios I",
-        buttons: ["Botón 1", "Botón 2"]
-      },
-      {
-        name: "Pedro Gonzalez",
-        cargo: "Gestor de servicios II",
-        buttons: ["Botón 3", "Botón 4"]
-      },
-      {
-        name: "Luis Rodriguez",
-        cargo: "Gestor de servicios III",
-        buttons: ["Botón 5", "Botón 6"]
-      },
-      {
-        name: "Jose Rodriguez",
-        cargo: "Gestor de servicios I",
-        buttons: ["Botón 7", "Botón 8"]
-      }
-    ];
+    const profiles = getRandomProfile()
   
     return (
       <>
