@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { holidays } from "./holidays.js";
 import "../css/calendario.css";
+
+import { holidays } from "./holidays.js";
 import DaysCalendar from "./DaysCalendar.js";
 import WeekCount from "./WeekCount.js";
+
 function Calendarios({ mesProps, yearSet }) {
   const [colombianHolidays, setColombianHolidays] = useState([]);
   const monthCalendario = mesProps; // recibe el mes de CardsCald.js para rendering

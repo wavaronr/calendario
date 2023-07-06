@@ -15,7 +15,6 @@ function DaysCalendar({ day, colombianHolidays, monthCalendario, yearSet }) {
   };
 
   return (
-    <>
     <li
       key={day}
       className={isFirstDay ? "firstday" : "weekdays"}
@@ -23,8 +22,7 @@ function DaysCalendar({ day, colombianHolidays, monthCalendario, yearSet }) {
     >
       {day}
     </li>
-    </>
-  );
+    );
 }
 
 export default DaysCalendar;
