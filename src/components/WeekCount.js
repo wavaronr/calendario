@@ -1,12 +1,13 @@
 import { getISOWeek } from "date-fns";
 
 import { getMondayNumbers } from "./getMondayNumbers";
-import AsesorOffCanvas from "./asesorOffCanvas";
+import AsesorOffCanvas from "./AsesorOffCanvas";
 
 function WeekCount({ monthCalendario, yearSet }) {
 
   
   const day = [1,...getMondayNumbers(monthCalendario, yearSet).filter(number => number !== 1)];
+  
   const weekNumbers = day.map((dayItem) => {
     const date = new Date(yearSet, monthCalendario, dayItem);
     const weekNumber = getISOWeek(date); // funcion de libreria date-fns que retorna numero de semana segun date
@@ -25,6 +26,7 @@ function WeekCount({ monthCalendario, yearSet }) {
       </li>
     );
   });
+ 
   return (
     <>
       <AsesorOffCanvas />

@@ -15,7 +15,6 @@
     background-color: none;
 }
 .numerWeek{
-    background-color: none;
     grid-template-columns: repeat(1,1fr); 
     display: grid;
     list-style: none;
@@ -24,16 +23,15 @@
     place-items: center;
     padding-right: 3px;
     padding-left: 0;
-    font-size: small;
 }
-.numerW-title{
+.numerW-title {
     background-color: rgb(17, 1, 107);
     color: rgb(255, 251, 251) ;
     border-radius: 3px;
-    font-size:15px;
+    font-size:13px;
     padding-left: 1px;
+    text-align: center;
 }
-
 
 .card{
   border: 1px solid black;

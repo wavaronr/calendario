@@ -1,7 +1,23 @@
 import getRandomProfile from "./getRandomProfile"
+//import * as  fs from 'node:fs'
+
+
 
 function ProfileAsesor() {
     const profiles = getRandomProfile()
+   // const fs = require('fs');
+/***
+ * BORRADOR APARA DBJSON
+ */
+   // Convertir los perfiles a formato JSON
+  // const jsonData = JSON.stringify(profiles);
+
+ // const writeFileSync = fs.writeFileSync;
+   // Guardar los perfiles en un archivo JSON
+  // writeFileSync('profiles.json', jsonData);
+
+
+/**FN */
   
     return (
       <>
