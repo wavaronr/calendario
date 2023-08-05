@@ -1,12 +1,11 @@
 // import dataAsesor from "../data/dataAsesor.json";
-import { getDataAsesor } from "./getDataAsesor";
+import { getDataAsesor } from './getDataAsesor';
 
 async function getRandomProfile() {
   const randomUsers = [];
 
   try {
     const userApi = await getDataAsesor(1);
-
     const users = userApi;
 
     const availableIndexes = Array.from(

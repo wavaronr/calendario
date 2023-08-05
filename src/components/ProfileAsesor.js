@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
-import getRandomProfile from "./getRandomProfile";
+import React, { useState, useEffect } from 'react'
+import getRandomProfile from './getRandomProfile'
 
 function ProfileAsesor() {
-  const [profiles, setProfiles] = useState([]);
+  const [profiles, setProfiles] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
-      const profile = await getRandomProfile();
+      const profile = await getRandomProfile()
 
-      setProfiles(profile);
-    };
+      setProfiles(profile)
+    }
 
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -34,7 +34,7 @@ function ProfileAsesor() {
         </div>
       ))}
     </>
-  );
+  )
 }
 
-export default ProfileAsesor;
+export default ProfileAsesor
