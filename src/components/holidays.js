@@ -1,4 +1,4 @@
-export const holydays = async (year) => {
+export const holidays = async (year) => {
   const url = `https://date.nager.at/api/v3/publicholidays/${year}/CO`;
 
   const days = [];

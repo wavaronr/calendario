@@ -1,4 +1,3 @@
-// YearInput.js
 import React, { useState } from "react";
 import "../css/calendario.css";
 

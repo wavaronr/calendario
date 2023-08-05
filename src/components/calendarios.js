@@ -1,29 +1,33 @@
 import React, { useEffect, useState } from "react";
-import { holydays } from "./holydays.js";
 import "../css/calendario.css";
+
+import { holidays } from "./holidays.js";
 import DaysCalendar from "./DaysCalendar.js";
+import WeekCount from "./WeekCount.js";
 
 function Calendarios({ mesProps, yearSet }) {
-  const [colombianHolydays, setColombianHolydays] = useState([]);
+  const [colombianHolidays, setColombianHolidays] = useState([]);
   const monthCalendario = mesProps; // recibe el mes de CardsCald.js para rendering
 
   useEffect(() => {
     const fetchData = async () => {
-      const holydaysData = await holydays(yearSet);
-      setColombianHolydays(holydaysData);
+      const holidaysData = await holidays(yearSet);
+      setColombianHolidays(holidaysData);
     };
 
     fetchData();
   }, [yearSet]);
+  
 
   // se suma a monthCalendar 1 para obtener el dia anterior al siguiente mes
   const countDays = new Date(yearSet, monthCalendario + 1, 0).getDate();
 
   const days = Array.from({ length: countDays }, (_, index) => index + 1); // genera el array segun la cantidad de dias del mes
-  const daysTitle = ["Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab"];
+  const daysTitle = [ "Lun", "Mar", "Mie", "Jue", "Vie", "Sab","Dom"];
 
   return (
     <div className="calendar">
+      <WeekCount monthCalendario={monthCalendario} yearSet={yearSet} />
       <ol className="ol">
         {daysTitle.map((dayL) => (
           <li className="dayLetter" key={dayL}>
@@ -34,7 +38,7 @@ function Calendarios({ mesProps, yearSet }) {
           <DaysCalendar
             key={day}
             day={day}
-            colombianHolydays={colombianHolydays}
+            colombianHolidays={colombianHolidays}
             monthCalendario={monthCalendario}
             yearSet={yearSet}
           />
