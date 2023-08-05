@@ -1,7 +1,6 @@
-import ProfileAsesor from "./ProfileAsesor";
+import ProfileAsesor from './ProfileAsesor';
 
-function asesorOffCanvas() {
-
+function AsesorOffCanvas() {
   return (
     <div
       className="offcanvas offcanvas-start"
@@ -21,9 +20,9 @@ function asesorOffCanvas() {
         ></button>
       </div>
       <div className="offcanvas-body">
-        <ProfileAsesor/>
+        <ProfileAsesor />
       </div>
     </div>
   );
 }
-export default asesorOffCanvas;
+export default AsesorOffCanvas;

@@ -1,5 +1,5 @@
 export const getDataAsesor = async (id) => {
-  const url = `http://localhost:3000/posts/${id}`;
+  const url = `http://localhost:3004/posts/${id}`;
   // levantar servidor con json-server --watch db.json
   let dataProfile = [];
   const response = await fetch(url);
@@ -16,7 +16,7 @@ export const getDataAsesor = async (id) => {
       }),
     ];
   } else {
-    console.error("sin data");
+    console.error('sin data');
   }
 
   return dataProfile;

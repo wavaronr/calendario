@@ -1,19 +1,22 @@
-import { getISOWeek } from "date-fns";
+import { getISOWeek } from 'date-fns'
 
-import { getMondayNumbers } from "./getMondayNumbers";
-import AsesorOffCanvas from "./AsesorOffCanvas";
+import { getMondayNumbers } from './getMondayNumbers'
+import AsesorOffCanvas from './AsesorOffCanvas'
 
 function WeekCount({ monthCalendario, yearSet }) {
+  const day = [
+    1,
+    ...getMondayNumbers(monthCalendario, yearSet).filter(
+      (number) => number !== 1
+    ),
+  ]
 
-  
-  const day = [1,...getMondayNumbers(monthCalendario, yearSet).filter(number => number !== 1)];
-  
   const weekNumbers = day.map((dayItem) => {
-    const date = new Date(yearSet, monthCalendario, dayItem);
-    const weekNumber = getISOWeek(date); // funcion de libreria date-fns que retorna numero de semana segun date
+    const date = new Date(yearSet, monthCalendario, dayItem)
+    const weekNumber = getISOWeek(date) // funcion de libreria date-fns que retorna numero de semana segun date
 
     return (
-      <li className="numerW" key={weekNumber + "-" + monthCalendario}>
+      <li className="numerW" key={weekNumber + '-' + monthCalendario}>
         <button
           className="btn numerW"
           type="button"
@@ -24,18 +27,21 @@ function WeekCount({ monthCalendario, yearSet }) {
           {weekNumber}
         </button>
       </li>
-    );
-  });
- 
+    )
+  })
+
   return (
     <>
       <AsesorOffCanvas />
       <ol className="numerWeek">
-        <li className="numerW-title" key={"Sem"}> Sem </li>
+        <li className="numerW-title" key={'Sem'}>
+          {' '}
+          Sem{' '}
+        </li>
         {weekNumbers}
       </ol>
     </>
-  );
+  )
 }
 
-export default WeekCount;
+export default WeekCount
