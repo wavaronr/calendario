@@ -1,6 +1,11 @@
 import ProfileAsesor from './ProfileAsesor';
 
-function AsesorOffCanvas() {
+
+function AsesorOffCanvas({weekNumberP}) {
+  
+
+
+
   return (
     <div
       className="offcanvas offcanvas-start"
@@ -20,7 +25,7 @@ function AsesorOffCanvas() {
         ></button>
       </div>
       <div className="offcanvas-body">
-        <ProfileAsesor />
+        <ProfileAsesor weekNumberP={weekNumberP}/>
       </div>
     </div>
   );

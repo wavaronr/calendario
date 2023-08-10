@@ -1,40 +1,50 @@
-import React, { useState, useEffect } from 'react'
-import getRandomProfile from './getRandomProfile'
+import React, { useState, useEffect } from 'react';
+import { getDataAsesor } from './getDataAsesor';
 
-function ProfileAsesor() {
-  const [profiles, setProfiles] = useState([])
+function ProfileAsesor({ weekNumberP }) {
+  const [profiles, setProfiles] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const profile = await getRandomProfile()
+      const profile = await getDataAsesor('allprofile');
+      setProfiles(profile);
+    };
 
-      setProfiles(profile)
-    }
+    fetchData();
+  }, [weekNumberP]);
 
-    fetchData()
-  }, [])
+  const profiler =[]
+  profiler.push(profiles[weekNumberP-1])
+  console.log(profiler)
 
   return (
     <>
-      {profiles.map(({ name, cargo, buttons }, index) => (
-        <div className="card" key={index}>
-          <h5 className="card-title">Zona {index + 1}</h5>
-          <div className="card-body">
-            <p className="card-text">
-              Asesor: {name}
-              <br />
-              Cargo: {cargo}
-            </p>
-            {buttons.map((button, buttonIndex) => (
-              <button className="btn btn-outline-primary" key={buttonIndex}>
-                {button}
-              </button>
-            ))}
-          </div>
-        </div>
-      ))}
+      {
+       
+       profiler?.map((profile, index) => {
+          return (
+            <div className="card" key={index + profile?.asigned}>
+              <h5 className="card-title">Zona {profile?.week}</h5>
+              <div className="card-body" key={profile?.asigned+index}>
+              {/* { name, cargo, buttons } */}
+                {profile?.asigned?.map((asing, index) => (
+                  <p className="card-text" key={asing.name + index}>
+                    Asesor:{asing.name}
+                    <br />
+                    Cargo:{asing.cargo}
+                    <button className="btn btn-outline-primary" key={asing.buttons + index}>
+                      para corregir {asing.buttons}
+                    </button>
+                  </p>
+                ))}
+              </div>
+            </div>
+          );
+      })
+    }
     </>
-  )
+  );
 }
 
-export default ProfileAsesor
+export default ProfileAsesor;
+

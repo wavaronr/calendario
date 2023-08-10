@@ -7,12 +7,14 @@ export const getDataAsesor = async (id) => {
     const data = await response.json();
     dataProfile = [
       ...data.objetc.map((object) => {
-        return {
-          id: object.id,
-          name: object.name,
-          cargo: object.cargo,
-          buttons: object.buttons,
-        };
+        // return {
+        //   id: object.id,
+        //   name: object.name,
+        //   cargo: object.cargo,
+        //   buttons: object.buttons,
+        // };
+        return object
+        
       }),
     ];
   } else {
