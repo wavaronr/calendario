@@ -13,38 +13,48 @@ function ProfileAsesor({ weekNumberP }) {
     fetchData();
   }, [weekNumberP]);
 
+  const weekIt = weekNumberP - 1;
   const profiler =[]
-  profiler.push(profiles[weekNumberP-1])
-  console.log(profiler)
+  profiler.push(profiles[weekIt])
 
-  return (
-    <>
-      {
-       
-       profiler?.map((profile, index) => {
-          return (
-            <div className="card" key={index + profile?.asigned}>
-              <h5 className="card-title">Zona {profile?.week}</h5>
-              <div className="card-body" key={profile?.asigned+index}>
-              {/* { name, cargo, buttons } */}
-                {profile?.asigned?.map((asing, index) => (
-                  <p className="card-text" key={asing.name + index}>
-                    Asesor:{asing.name}
-                    <br />
-                    Cargo:{asing.cargo}
-                    <button className="btn btn-outline-primary" key={asing.buttons + index}>
-                      para corregir {asing.buttons}
-                    </button>
-                  </p>
-                ))}
-              </div>
-            </div>
-          );
-      })
-    }
-    </>
-  );
+  const rederProfiles = Object.keys(profiler)?.map((index) => {
+    const zona = profiler[weekIt]?.week;
+    const persons = profiler[weekIt]?.asigned;
+
+    console.log("zona",zona)
+    console.log("persons", persons)
+    if(zona!== undefined){
+    return (
+      <div className="card" key={index}>
+        <h5 className="card-title">Zona {zona}</h5>
+        <div className="card-body" key={persons + index}>
+          {persons?.map(({name,cargo,buttons}, index) => (
+            <p className="card-text" key={name + index}>
+              Asesor:{name}
+              <br />
+              Cargo:{cargo}
+              <button
+                className="btn btn-outline-primary"
+                key={buttons + index}
+              >
+                para corregir {buttons}
+              </button>
+            </p>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  else {
+    return <div>Cargando...</div>;
+  }
+  });
+
+  // console.log(rederProfiles);
+
+  return <>{rederProfiles}</>;
 }
 
 export default ProfileAsesor;
+
 
