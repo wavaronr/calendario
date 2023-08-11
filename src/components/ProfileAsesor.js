@@ -1,40 +1,56 @@
-import React, { useState, useEffect } from 'react'
-import getRandomProfile from './getRandomProfile'
+import React, { useState, useEffect } from 'react';
+import { getDataAsesor } from './getDataAsesor';
 
-function ProfileAsesor() {
-  const [profiles, setProfiles] = useState([])
+function ProfileAsesor({ weekNumber }) {
+  const [profiles, setProfiles] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const profile = await getRandomProfile()
+      const profile = await getDataAsesor('allprofile');
+      setProfiles(profile);
+    };
 
-      setProfiles(profile)
-    }
+    fetchData();
+  }, []);
 
-    fetchData()
-  }, [])
+  const weekIt = weekNumber - 1;
+  const profiler =[]
+  profiler.push(profiles[weekIt])
+    const rederProfiles = Object.keys(profiler)?.map((index) => {
+    const semana = profiler[index]?.week;
+    const persons = profiler[index]?.asigned;
 
-  return (
-    <>
-      {profiles.map(({ name, cargo, buttons }, index) => (
-        <div className="card" key={index}>
-          <h5 className="card-title">Zona {index + 1}</h5>
-          <div className="card-body">
-            <p className="card-text">
-              Asesor: {name}
+    if(semana!== undefined){
+    return (
+      <div className="card" key={index+"ProfileAsesor"}>
+        <h5 className="card-title" key={semana + index}>Semana {semana}</h5>
+        <div className="card-body" key={persons + index}>
+          {persons?.map(({name,cargo,buttons}, index) => (
+            <p className="card-text" key={name + index}>
+              Asesor:{name}
               <br />
-              Cargo: {cargo}
-            </p>
-            {buttons.map((button, buttonIndex) => (
-              <button className="btn btn-outline-primary" key={buttonIndex}>
-                {button}
+              Cargo:{cargo}
+              <button
+                className="btn btn-outline-primary"
+                key={buttons + index}
+              >
+                para corregir {buttons}
               </button>
-            ))}
-          </div>
+            </p>
+          ))}
         </div>
-      ))}
-    </>
-  )
+      </div>
+    );
+  }
+  else {
+    return <div>Cargando...</div>;
+  }
+  });
+
+
+  return <>{rederProfiles}</>;
 }
 
-export default ProfileAsesor
+export default ProfileAsesor;
+
+
