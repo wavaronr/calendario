@@ -5,22 +5,29 @@ import { getMondayNumbers } from './getMondayNumbers';
 import AsesorOffCanvas from './AsesorOffCanvas';
 
 function WeekCount({ monthCalendario, yearSet }) {
-  const [weekNumberP, setWeekNumberP] = useState(1);
+  
+  const [weekNumber, setWeekNumber] = useState(1);
+  const [month, setMonth] = useState(monthCalendario);
+
+
+  console.log(month)
+
   const day = [
     1,
     ...getMondayNumbers(monthCalendario, yearSet).filter(
       (number) => number !== 1
     ),
   ];
+
+  const handleClick = (selectedWeek,selectedMonth) => {
+    setWeekNumber(selectedWeek);
+    setMonth(selectedMonth)
+
+  };
+
   const weekNumbers = day.map((dayItem) => {
     const date = new Date(yearSet, monthCalendario, dayItem);
     const weekNumber = getISOWeek(date); // funcion de libreria date-fns que retorna numero de semana segun date
-    const handleClick = (weekNumber) => {
-      console.log('Botón fue clicado');
-      // Puedes hacer aquí cualquier acción que desees al hacer clic en el botón
-      setWeekNumberP(weekNumber)
-
-    };
 
     return (
       <li className="numerW" key={weekNumber + '-' + monthCalendario}>
@@ -30,18 +37,17 @@ function WeekCount({ monthCalendario, yearSet }) {
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions"
           aria-controls="offcanvasWithBothOptions"
-          onClick={() =>handleClick(weekNumber)}
+          onClick={() => handleClick(weekNumber,monthCalendario)}
         >
           {weekNumber}
         </button>
-        <AsesorOffCanvas weekNumberP={weekNumberP}/>
       </li>
     );
   });
 
   return (
     <>
-      <AsesorOffCanvas />
+        <AsesorOffCanvas weekNumber={weekNumber}  />
       <ol className="numerWeek">
         <li className="numerW-title" key={'Sem'}>
           {' '}

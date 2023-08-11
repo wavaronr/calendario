@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getDataAsesor } from './getDataAsesor';
 
-function ProfileAsesor({ weekNumberP }) {
+function ProfileAsesor({ weekNumber }) {
   const [profiles, setProfiles] = useState([]);
 
   useEffect(() => {
@@ -11,22 +11,19 @@ function ProfileAsesor({ weekNumberP }) {
     };
 
     fetchData();
-  }, [weekNumberP]);
+  }, []);
 
-  const weekIt = weekNumberP - 1;
+  const weekIt = weekNumber - 1;
   const profiler =[]
   profiler.push(profiles[weekIt])
+    const rederProfiles = Object.keys(profiler)?.map((index) => {
+    const semana = profiler[index]?.week;
+    const persons = profiler[index]?.asigned;
 
-  const rederProfiles = Object.keys(profiler)?.map((index) => {
-    const zona = profiler[weekIt]?.week;
-    const persons = profiler[weekIt]?.asigned;
-
-    console.log("zona",zona)
-    console.log("persons", persons)
-    if(zona!== undefined){
+    if(semana!== undefined){
     return (
-      <div className="card" key={index}>
-        <h5 className="card-title">Zona {zona}</h5>
+      <div className="card" key={index+"ProfileAsesor"}>
+        <h5 className="card-title" key={semana + index}>Semana {semana}</h5>
         <div className="card-body" key={persons + index}>
           {persons?.map(({name,cargo,buttons}, index) => (
             <p className="card-text" key={name + index}>
@@ -50,7 +47,6 @@ function ProfileAsesor({ weekNumberP }) {
   }
   });
 
-  // console.log(rederProfiles);
 
   return <>{rederProfiles}</>;
 }

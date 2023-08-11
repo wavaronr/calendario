@@ -1,7 +1,7 @@
 import React, { useState }  from "react";
 import "../css/calendario.css";
 
-import Calendarios from "./calendarios.js";
+import Calendarios from "./Calendarios.js";
 import YearInput from "./yearinput";
 
 function CardsCald() {
@@ -35,9 +35,7 @@ function CardsCald() {
           <div className="card" style={{ width: "18rem" }} key={mes.toString()}>
             <div className="card-body">
               <h5 className="card-title">{mes}</h5>
-              {/* <p className="card-text"> */}
-              <Calendarios mesProps={months.indexOf(mes)} yearSet={yearSet} />
-              {/* </p> */}
+              <Calendarios monthCalendario={months.indexOf(mes)} yearSet={yearSet} />
             </div>
           </div>
         ))}
