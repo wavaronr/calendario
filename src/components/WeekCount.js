@@ -25,6 +25,7 @@ function WeekCount({ monthCalendario, yearSet }) {
 
   };
 
+  console.log(month)
   const weekNumbers = day.map((dayItem) => {
     const date = new Date(yearSet, monthCalendario, dayItem);
     const weekNumber = getISOWeek(date); // funcion de libreria date-fns que retorna numero de semana segun date
