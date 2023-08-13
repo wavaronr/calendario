@@ -1,20 +1,14 @@
 export const getDataAsesor = async (id) => {
-  const url = `http://localhost:3004/posts/${id}`;
+const url = new URL( "http://localhost:3004/posts/");
+
   // levantar servidor con json-server --watch db.json
   let dataProfile = [];
-  const response = await fetch(url);
+  const response = await fetch(url+(id));
   if (response.ok) {
     const data = await response.json();
     dataProfile = [
       ...data.objetc.map((object) => {
-        // return {
-        //   id: object.id,
-        //   name: object.name,
-        //   cargo: object.cargo,
-        //   buttons: object.buttons,
-        // };
         return object
-        
       }),
     ];
   } else {

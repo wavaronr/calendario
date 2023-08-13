@@ -1,14 +1,8 @@
-import React, { useState } from 'react';
 import { getISOWeek } from 'date-fns';
 
 import { getMondayNumbers } from './getMondayNumbers';
 
-function WeekCount({ monthCalendario, yearSet,setWeekNumber }) {
-  
-  // const [month, setMonth] = useState(monthCalendario);
-
-
-
+function WeekCount({ monthCalendario, yearSet, setWeekNumber }) {
   const day = [
     1,
     ...getMondayNumbers(monthCalendario, yearSet).filter(
@@ -16,10 +10,8 @@ function WeekCount({ monthCalendario, yearSet,setWeekNumber }) {
     ),
   ];
 
-  const handleClick = (selectedWeek,selectedMonth) => {
+  const handleClick = (selectedWeek) => {
     setWeekNumber(selectedWeek);
-    // setMonth(selectedMonth)
-
   };
 
   const weekNumbers = day.map((dayItem) => {
@@ -34,7 +26,7 @@ function WeekCount({ monthCalendario, yearSet,setWeekNumber }) {
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasWithBothOptions"
           aria-controls="offcanvasWithBothOptions"
-          onClick={() => handleClick(weekNumber,monthCalendario)}
+          onClick={() => handleClick(weekNumber)}
         >
           {weekNumber}
         </button>
@@ -46,8 +38,7 @@ function WeekCount({ monthCalendario, yearSet,setWeekNumber }) {
     <>
       <ol className="numerWeek">
         <li className="numerW-title" key={'Sem'}>
-          {' '}
-          Sem{' '}
+          Sem
         </li>
         {weekNumbers}
       </ol>
