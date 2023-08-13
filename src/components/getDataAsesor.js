@@ -19,19 +19,11 @@ export const getDataAsesor = async (id) => {
 
 export const getAllDataAsesor = async () => {
   const url = `http://localhost:3004/advisers`;
-  // levantar servidor con json-server --watch db.json
-  let dataProfile = [];
   const response = await fetch(url);
   if (response.ok) {
     const data = await response.json();
-    dataProfile = [
-      ...data.map((object) => {
-        return object;
-      }),
-    ];
+    return data;
   } else {
-    console.error('sin data');
+    return [];
   }
-
-  return dataProfile;
 };
