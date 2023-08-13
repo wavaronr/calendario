@@ -31,6 +31,12 @@
     font-size:13px;
     padding-left: 1px;
     text-align: center;
+    margin-top: 20%;
+}
+
+li.numerW-title{
+    padding: 10%;
+    position: relative;
 }
 
 .card{
