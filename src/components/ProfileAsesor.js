@@ -3,31 +3,32 @@ import { getDataAsesor } from './getDataAsesor';
 
 function ProfileAsesor({ weekNumber }) {
   const [profiles, setProfiles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       const profile = await getDataAsesor('allprofile');
       setProfiles(profile);
+      setLoading(false);
     };
 
     fetchData();
   }, []);
 
-  const weekIt = weekNumber - 1;
-  const profiler = [];
-  profiler.push(profiles[weekIt]);
-  const rederProfiles = Object.keys(profiler)?.map((index) => {
-    const semana = profiler[index]?.week;
-    const persons = profiler[index]?.asigned;
+  const weeklyAdvisers = profiles.find(
+    (profile) => profile.week === weekNumber
+  );
 
-    if (semana !== undefined) {
-      return (
-        <div className="card" key={index + 'ProfileAsesor'}>
-          <h5 className="card-title" key={semana + index}>
-            Semana {semana}
-          </h5>
-          <div className="card-body" key={persons + index}>
-            {persons?.map(({ name, cargo, buttons }, index) => (
+  return (
+    <>
+      {loading ? (
+        <div>Cargando...</div>
+      ) : weeklyAdvisers ? (
+        <div className="card">
+          <h5 className="card-title">Semana {weeklyAdvisers.week}</h5>
+          <div className="card-body">
+            {weeklyAdvisers.asigned?.map(({ name, cargo, buttons }, index) => (
               <p className="card-text" key={name + index}>
                 Asesor:{name}
                 <br />
@@ -42,13 +43,11 @@ function ProfileAsesor({ weekNumber }) {
             ))}
           </div>
         </div>
-      );
-    } else {
-      return <div>Cargando...</div>;
-    }
-  });
-
-  return <>{rederProfiles}</>;
+      ) : (
+        <div>Nada que mostrar</div>
+      )}
+    </>
+  );
 }
 
 export default ProfileAsesor;
