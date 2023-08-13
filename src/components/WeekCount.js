@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { getISOWeek } from 'date-fns';
 
 import { getMondayNumbers } from './getMondayNumbers';
-import AsesorOffCanvas from './AsesorOffCanvas';
 
-function WeekCount({ monthCalendario, yearSet }) {
+function WeekCount({ monthCalendario, yearSet,setWeekNumber }) {
   
-  const [weekNumber, setWeekNumber] = useState(1);
-  const [month, setMonth] = useState(monthCalendario);
+  // const [month, setMonth] = useState(monthCalendario);
 
 
-  console.log(month)
 
   const day = [
     1,
@@ -21,11 +18,10 @@ function WeekCount({ monthCalendario, yearSet }) {
 
   const handleClick = (selectedWeek,selectedMonth) => {
     setWeekNumber(selectedWeek);
-    setMonth(selectedMonth)
+    // setMonth(selectedMonth)
 
   };
 
-  console.log(month)
   const weekNumbers = day.map((dayItem) => {
     const date = new Date(yearSet, monthCalendario, dayItem);
     const weekNumber = getISOWeek(date); // funcion de libreria date-fns que retorna numero de semana segun date
@@ -48,7 +44,6 @@ function WeekCount({ monthCalendario, yearSet }) {
 
   return (
     <>
-        <AsesorOffCanvas weekNumber={weekNumber}  />
       <ol className="numerWeek">
         <li className="numerW-title" key={'Sem'}>
           {' '}

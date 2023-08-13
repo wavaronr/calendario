@@ -1,10 +1,13 @@
 import React, { useState }  from "react";
 import "../css/calendario.css";
 
+import AsesorOffCanvas from './AsesorOffCanvas';
 import Calendarios from "./Calendarios.js";
 import YearInput from "./yearinput";
 
 function CardsCald() {
+  const [weekNumber, setWeekNumber] = useState(1);
+
   const months = [
     "Enero",
     "Febrero",
@@ -35,10 +38,12 @@ function CardsCald() {
           <div className="card" style={{ width: "18rem" }} key={mes.toString()}>
             <div className="card-body">
               <h5 className="card-title">{mes}</h5>
-              <Calendarios monthCalendario={months.indexOf(mes)} yearSet={yearSet} />
+              <Calendarios monthCalendario={months.indexOf(mes)} yearSet={yearSet} setWeekNumber={setWeekNumber}/>
             </div>
           </div>
         ))}
+                <AsesorOffCanvas weekNumber={weekNumber}  />
+
       </div>
     </>
   );
