@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getDataAsesor } from './getDataAsesor';
+import { getAllDataAsesor } from './getDataAsesor';
 
 function ProfileAsesor({ weekNumber }) {
   const [profiles, setProfiles] = useState([]);
@@ -8,7 +8,7 @@ function ProfileAsesor({ weekNumber }) {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const profile = await getDataAsesor('allprofile');
+      const profile = await getAllDataAsesor();
       setProfiles(profile);
       setLoading(false);
     };
