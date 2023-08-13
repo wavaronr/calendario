@@ -6,7 +6,7 @@ import { holidays } from "./holidays.js";
 import DaysCalendar from "./DaysCalendar.js";
 import WeekCount from "./WeekCount.js";
 
-function Calendarios({ monthCalendario, yearSet }) {
+function Calendarios({ monthCalendario, yearSet,setWeekNumber }) {
   const [colombianHolidays, setColombianHolidays] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function Calendarios({ monthCalendario, yearSet }) {
 
   return (
     <div className="calendar">
-      <WeekCount monthCalendario={monthCalendario} yearSet={yearSet}  />
+      <WeekCount monthCalendario={monthCalendario} yearSet={yearSet} setWeekNumber={setWeekNumber}  />
       <ol className="ol">
         {daysTitle.map((dayL) => (
           <li className="dayLetter" key={dayL}>
