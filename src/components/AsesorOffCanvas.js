@@ -1,6 +1,7 @@
 import ProfileAsesor from './ProfileAsesor';
 
 function AsesorOffCanvas({ weekNumber }) {
+  console.log('numero de semana', weekNumber);
   return (
     <div
       className="offcanvas offcanvas-start"
