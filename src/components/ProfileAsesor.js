@@ -6,7 +6,7 @@ function ProfileAsesor({ weekNumber }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const profile = await getDataAsesor('allprofile');
+      const profile = await getDataAsesor('assignment');
       setProfiles(profile);
     };
 
