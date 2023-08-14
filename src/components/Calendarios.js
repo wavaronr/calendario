@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 
 import React, { useEffect, useState } from "react";
 import "../css/calendario.css";
@@ -26,6 +27,8 @@ function Calendarios({ monthCalendario, yearSet,setWeekNumber }) {
   const daysTitle = [ "Lun", "Mar", "Mie", "Jue", "Vie", "Sab","Dom"];
 
   return (
+    <>
+    <Navigate to="/"  replace={true}/>
     <div className="calendar">
       <WeekCount monthCalendario={monthCalendario} yearSet={yearSet} setWeekNumber={setWeekNumber}  />
       <ol className="ol">
@@ -45,6 +48,7 @@ function Calendarios({ monthCalendario, yearSet,setWeekNumber }) {
         ))}
       </ol>
     </div>
+    </>
   );
 }
 
