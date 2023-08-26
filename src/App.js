@@ -4,13 +4,13 @@ import './App.css';
 import CardsCald from './components/CardsCald.js';
 import Header from './components/Header.js';
 import CardProfile from './components/CardProfile.js';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import {  Routes, Route,BrowserRouter } from 'react-router-dom';
+// BrowserRouter as Router,
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
       <Header/>
-      <Router>
         <Routes>
         <Route exact path="/" element={<CardsCald />} key="home"></Route>
           <Route exact path="/Calendario" element={<CardsCald />} key="CardsCald"></Route>
@@ -21,7 +21,7 @@ function App() {
             key="profiles"
           ></Route>
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
