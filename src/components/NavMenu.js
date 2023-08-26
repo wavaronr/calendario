@@ -1,5 +1,7 @@
-import React ,{ useState } from "react";
-import { useNavigate } from "react-router-dom";
+import  { useState } from "react";
+
+import { useNavigate} from "react-router-dom";
+
 function NavMenu() {
   const [activeIndex, setActiveIndex] = useState(0);
   const navigate = useNavigate();
@@ -9,7 +11,7 @@ function NavMenu() {
 
   const handleClick = (index) => {
     setActiveIndex(index === activeIndex ? -1 : index);
-    navigate(`/${buttons[index]}`,{ replace: false })
+    navigate(`/${buttons[index]}`,{ replace: true })
   };
 
   return (
