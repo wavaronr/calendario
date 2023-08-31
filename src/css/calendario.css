@@ -92,3 +92,9 @@ li.numerW-title{
   .btn.numerW:hover {  
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   }
+
+  .card-profiles{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Divide en 4 columnas de igual tamaño */
+    gap: 20px; 
+  }
