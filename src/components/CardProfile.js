@@ -13,6 +13,7 @@ function CardProfile() {
 
     fetchData();
   }, []);
+  console.log(profiles) 
 
   const cardsProfiles = profiles?.map(({ id, name, cargo }) => (
     <div className="card" key={'card' + { id }}>
