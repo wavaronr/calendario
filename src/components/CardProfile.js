@@ -13,7 +13,7 @@ function CardProfile() {
 
     fetchData();
   }, []);
-  console.log(profiles) 
+  console.log(profiles);
 
   const cardsProfiles = profiles?.map(({ id, name, cargo }) => (
     <div className="card" key={'card' + { id }}>
@@ -21,8 +21,10 @@ function CardProfile() {
         <h5 className="card-title" key={'card-title' + { id }}>
           {name}
         </h5>
-        <p class="card-text" key={'card-title' + { id }}>
-          {cargo}
+        <p class="card-text " key={'card-title' + { id }}>
+          Identificacion: {id}
+          <br></br>
+          Cargo: {cargo}
         </p>
         <button href="#" class="btn btn-primary">
           Editar

@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 
+import Login from './components/Login.js';
 import CardsCald from './components/CardsCald.js';
 import Header from './components/Header.js';
 import CardProfile from './components/CardProfile.js';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+
 // BrowserRouter as Router,
 function App() {
   return (
@@ -12,7 +14,8 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route exact path="/" element={<CardsCald />} key="home"></Route>
+          <Route exact path="/" element={<Login />} key="login"></Route>
+          <Route exact path="/home" element={<CardsCald />} key="home"></Route>
           <Route
             exact
             path="/Calendario"
