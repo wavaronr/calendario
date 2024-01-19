@@ -31,24 +31,32 @@ function CardsCald() {
 
   return (
     <>
-      <YearInput onYearChange={handleYearChange} />
-      <div className="card-content" key={'card-content-cardcald'}>
-        {months.map((mes) => (
-          <div className="card" style={{ width: '18rem' }} key={mes.toString()}>
-            <div className="card-body" key={'card-body-cardcald'}>
-              <h5 className="card-title" key={'card-title-cardcald'}>
-                {mes}
-              </h5>
-              <Calendarios
-                monthCalendario={months.indexOf(mes)}
-                yearSet={yearSet}
-                setWeekNumber={setWeekNumber}
-                key={'Calendario-cardcald'}
-              />
+      <div class="container text-left">
+        <YearInput onYearChange={handleYearChange} />
+      </div>
+      <div class="container text-center">
+        <div className="card-content" key={'card-content-cardcald'}>
+          {months.map((mes) => (
+            <div
+              className="card"
+              style={{ width: '18rem' }}
+              key={mes.toString()}
+            >
+              <div className="card-body" key={'card-body-cardcald'}>
+                <h5 className="card-title" key={'card-title-cardcald'}>
+                  {mes}
+                </h5>
+                <Calendarios
+                  monthCalendario={months.indexOf(mes)}
+                  yearSet={yearSet}
+                  setWeekNumber={setWeekNumber}
+                  key={'Calendario-cardcald'}
+                />
+              </div>
             </div>
-          </div>
-        ))}
-        <AsesorOffCanvas weekNumber={weekNumber} />
+          ))}
+          <AsesorOffCanvas weekNumber={weekNumber} />
+        </div>
       </div>
     </>
   );

@@ -35,6 +35,7 @@ function CardProfile() {
           Cargo: {cargo}
         </p>
         <button className="btn btn-primary">Editar</button>
+        <button className="btn btn-danger">Eliminar</button>
       </div>
     </div>
   ));
