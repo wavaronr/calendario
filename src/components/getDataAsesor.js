@@ -1,6 +1,6 @@
 export const getDataProfile = async () => {
   //const url = `http://localhost:3004/advisers/${id}`;
-  const url = `http://localhost:3004/profiles`
+  const url = `http://localhost:3000/profiles`;
   // levantar servidor con json-server --watch db.json
   let dataProfile = [];
   const response = await fetch(url);
@@ -12,7 +12,7 @@ export const getDataProfile = async () => {
     //   }),
     // ];
 
-    return data
+    return data;
   } else {
     console.error('sin data');
   }
@@ -20,8 +20,8 @@ export const getDataProfile = async () => {
   return dataProfile;
 };
 
-export const getAllDataAsesor = async () => {
-  const url = `http://localhost:3004/advisers`;
+export const getAllDataAdvisers = async () => {
+  const url = `http://localhost:3000/advisers`;
   const response = await fetch(url);
   if (response.ok) {
     const data = await response.json();

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllDataAsesor } from './getDataAsesor';
+import { getAllDataAdvisers } from './getDataAsesor';
 
 function ProfileAsesor({ weekNumber }) {
   const [profiles, setProfiles] = useState([]);
@@ -8,7 +8,7 @@ function ProfileAsesor({ weekNumber }) {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
-      const profile = await getAllDataAsesor();
+      const profile = await getAllDataAdvisers();
       setProfiles(profile);
       setLoading(false);
     };
@@ -33,11 +33,18 @@ function ProfileAsesor({ weekNumber }) {
                 Asesor:{name}
                 <br />
                 Cargo:{cargo}
+                <br />
                 <button
-                  className="btn btn-outline-primary"
+                  className="btn btn-outline-success"
                   key={buttons + index}
                 >
-                  para corregir {buttons}
+                  {buttons[0]}
+                </button>{' '}
+                <button
+                  className="btn btn-outline-danger"
+                  key={buttons + index}
+                >
+                  {buttons[1]}
                 </button>
               </p>
             ))}
