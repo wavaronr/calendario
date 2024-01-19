@@ -4,6 +4,7 @@ import '../css/calendario.css';
 
 function CardProfile() {
   const [profiles, setProfiles] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,30 +14,47 @@ function CardProfile() {
 
     fetchData();
   }, []);
-  console.log(profiles);
 
-  const cardsProfiles = profiles?.map(({ id, name, cargo }) => (
+  const filteredProfiles = profiles.filter((profile) =>
+    profile.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const cardsProfiles = filteredProfiles.map(({ id, name, cargo }) => (
     <div className="card" key={'card-Profile' + { id }}>
       <div className="card-body" key={'card-body-Profile' + { id }}>
         <h5 className="card-title" key={'card-title-Profile' + { id }}>
           {name}
         </h5>
-        <p class="card-text " key={'card-text-Profile' + { id }}>
-          Identificacion: {id}
-          <br></br>
+        <p className="card-text" key={'card-text-Profile' + { id }}>
+          Identificación: {id}
+          <br />
           Cargo: {cargo}
         </p>
-        <button class="btn btn-primary">Editar</button>
+        <button className="btn btn-primary">Editar</button>
       </div>
     </div>
   ));
 
   return (
     <>
-      <div className="container">
+      <div className="container p-5">
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Buscar por nombre..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+        </div>
         <div className="card-profiles">{cardsProfiles}</div>
       </div>
     </>
   );
 }
+
 export default CardProfile;
