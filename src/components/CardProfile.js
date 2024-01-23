@@ -35,13 +35,14 @@ function CardProfile() {
           Cargo: {cargo}
         </p>
         <button className="btn btn-primary">Editar</button>
+        <button className="btn btn-danger">Eliminar</button>
       </div>
     </div>
   ));
 
   return (
     <>
-      <div className="container p-5">
+      <div className="container p-5 ">
         <div className="mb-3">
           <input
             type="text"
