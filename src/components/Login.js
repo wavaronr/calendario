@@ -41,7 +41,7 @@ function Login() {
               ></input>
               <label for="floatingPassword">Password</label>
             </div>
-            <button className="btn btn-primary m-1" type="submit">
+            <button className="btn btn-outline-secondary m-1" type="submit">
               {' '}
               Ingresar
             </button>
