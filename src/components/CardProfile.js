@@ -42,7 +42,7 @@ function CardProfile() {
 
   return (
     <>
-      <div className="container p-5">
+      <div className="container p-5 ">
         <div className="mb-3">
           <input
             type="text"

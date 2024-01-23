@@ -14,7 +14,7 @@ function NavMenu() {
   };
 
   return (
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-tabs  ">
       {buttons.map((button, index) => (
         <li className="nav-item" key={index}>
           <button
