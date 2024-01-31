@@ -49,11 +49,13 @@ li.numerW-title{
 }
 
 .dayLetter{
- background-color: rgb(17, 1, 107);
+background-color: rgb(17, 1, 107);
  border-radius: 2px;
  border: 1px solid rgba(0, 0, 0, 0.486);
  color: rgb(255, 251, 251) ;
  text-align: center;
+ word-wrap: break-word;
+ 
 }
 
 .card-content {
@@ -98,3 +100,11 @@ li.numerW-title{
     grid-template-columns: repeat(4, 1fr); /* Divide en 4 columnas de igual tamaño */
     gap: 20px; 
   }
+
+  .cardcalendario{
+    border-radius: 7px;
+    background: linear-gradient(145deg, #ffffff, #e1e1e6);
+    box-shadow:  5px 5px 10px #a5a5a8,
+                 -3px -3px 10px #ffffff; 
+    margin: 20px;
+                         }

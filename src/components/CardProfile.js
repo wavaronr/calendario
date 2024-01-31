@@ -24,6 +24,7 @@ function CardProfile() {
   };
 
   const cardsProfiles = filteredProfiles.map(({ id, name, cargo }) => (
+    // <div className="bordeador">
     <div className="card" key={'card-Profile' + { id }}>
       <div className="card-body" key={'card-body-Profile' + { id }}>
         <h5 className="card-title" key={'card-title-Profile' + { id }}>
@@ -38,6 +39,7 @@ function CardProfile() {
         <button className="btn btn-danger">Eliminar</button>
       </div>
     </div>
+    // </div>
   ));
 
   return (

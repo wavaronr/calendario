@@ -38,7 +38,7 @@ function CardsCald() {
         <div className="card-content" key={'card-content-cardcald'}>
           {months.map((mes) => (
             <div
-              className="card"
+              className="cardcalendario"
               style={{ width: '18rem' }}
               key={mes.toString()}
             >
