@@ -1,6 +1,7 @@
 import { getDataProfile } from './getDataAsesor';
 import React, { useState, useEffect } from 'react';
 import '../css/calendario.css';
+import { Container } from 'react-bootstrap';
 
 function CardProfile() {
   const [profiles, setProfiles] = useState([]);
@@ -25,21 +26,26 @@ function CardProfile() {
 
   const cardsProfiles = filteredProfiles.map(({ id, name, cargo }) => (
     // <div className="bordeador">
-    <div className="card" key={'card-Profile' + { id }}>
-      <div className="card-body" key={'card-body-Profile' + { id }}>
-        <h5 className="card-title" key={'card-title-Profile' + { id }}>
+    <div className="cardprofile" key={'card-Profile' + { id }}>
+      <div
+        className="card-body"
+        style={{ width: '100px' }}
+        key={'card-body-Profile' + { id }}
+      >
+        <h5 className="card-title p-3" key={'card-title-Profile' + { id }}>
           {name}
         </h5>
-        <p className="card-text" key={'card-text-Profile' + { id }}>
+        <p className="card-text p-2" key={'card-text-Profile' + { id }}>
           Identificación: {id}
           <br />
           Cargo: {cargo}
         </p>
-        <button className="btn btn-primary">Editar</button>
-        <button className="btn btn-danger">Eliminar</button>
+      </div>
+      <div className="container p-1">
+        <button className="btn btn-primary mt-auto">Editar</button>
+        <button className="btn btn-danger mt-auto">Eliminar</button>
       </div>
     </div>
-    // </div>
   ));
 
   return (
@@ -54,7 +60,7 @@ function CardProfile() {
             onChange={handleSearchChange}
           />
         </div>
-        <div className="card-profiles">{cardsProfiles}</div>
+        <div className="card-profiles">{cardsProfiles} </div>
       </div>
     </>
   );
