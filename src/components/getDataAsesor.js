@@ -1,6 +1,6 @@
 export const getDataProfile = async () => {
   //const url = `http://localhost:3004/advisers/${id}`;
-  const url = `http://localhost:3000/profiles`;
+  const url = `http://localhost:3004/profiles`;
   // levantar servidor con json-server --watch db.json
   let dataProfile = [];
   const response = await fetch(url);
@@ -21,7 +21,7 @@ export const getDataProfile = async () => {
 };
 
 export const getAllDataAdvisers = async () => {
-  const url = `http://localhost:3000/advisers`;
+  const url = `http://localhost:3004/advisers`;
   const response = await fetch(url);
   if (response.ok) {
     const data = await response.json();
