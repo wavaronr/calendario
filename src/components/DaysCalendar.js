@@ -6,9 +6,13 @@ function DaysCalendar({ day, colombianHolidays, monthCalendario, yearSet }) {
   const isHoliday = colombianHolidays.some(
     (festivo) => festivo.dia === day && festivo.mes === monthCalendario
   );
-  const dayStartCalendar =new Date(yearSet, monthCalendario, 1).getUTCDay()
-  const dayStart = dayStartCalendar===0?7:dayStartCalendar; // retorna el primer dia de la semana sumando 1 unidad
-    
+
+  // Obtiene el primer día de la semana (0 para Domingo, 1 para Lunes, etc.)
+  const firstDayOfMonth = new Date(yearSet, monthCalendario, 1).getDay();
+
+  // Ajusta el valor para que Lunes sea 2 y Domingo sea 8
+  const dayStart = (firstDayOfMonth === 0) ? 8 : firstDayOfMonth + 1;
+
   const listItemStyle = {
     ...(isHoliday && { color: "red", fontWeight: "bold" }),
     ...(isFirstDay && { gridColumnStart: dayStart }),
@@ -22,7 +26,7 @@ function DaysCalendar({ day, colombianHolidays, monthCalendario, yearSet }) {
     >
       {day}
     </li>
-    );
+  );
 }
 
 export default DaysCalendar;

@@ -1,7 +1,6 @@
 import { getDataProfile } from './getDataAsesor';
 import React, { useState, useEffect } from 'react';
-import '../css/calendario.css';
-import { Container } from 'react-bootstrap';
+import '../css/Profile.css';
 
 function CardProfile() {
   const [profiles, setProfiles] = useState([]);
@@ -24,45 +23,35 @@ function CardProfile() {
     setSearchTerm(e.target.value);
   };
 
-  const cardsProfiles = filteredProfiles.map(({ id, name, cargo }) => (
-    // <div className="bordeador">
-    <div className="cardprofile" key={'card-Profile' + { id }}>
-      <div
-        className="card-body"
-        style={{ width: '100px' }}
-        key={'card-body-Profile' + { id }}
-      >
-        <h5 className="card-title p-3" key={'card-title-Profile' + { id }}>
-          {name}
-        </h5>
-        <p className="card-text p-2" key={'card-text-Profile' + { id }}>
-          Identificación: {id}
-          <br />
-          Cargo: {cargo}
-        </p>
+  return (
+    <div className="profile-container">
+      <div className="search-bar">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Buscar por nombre..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
       </div>
-      <div className="container p-1">
-        <button className="btn btn-primary mt-auto">Editar</button>
-        <button className="btn btn-danger mt-auto">Eliminar</button>
+      <div className="profile-grid">
+        {filteredProfiles.map(({ id, name, cargo }) => (
+          <div className="profile-card" key={id}>
+            <div className="profile-card-header">
+              <h5 className="profile-name">{name}</h5>
+            </div>
+            <div className="profile-card-body">
+              <p><strong>Identificación:</strong> {id}</p>
+              <p><strong>Cargo:</strong> {cargo}</p>
+            </div>
+            <div className="profile-card-footer">
+              <button className="btn-edit">Editar</button>
+              <button className="btn-delete">Eliminar</button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
-  ));
-
-  return (
-    <>
-      <div className="container p-5 ">
-        <div className="mb-3">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Buscar por nombre..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-        </div>
-        <div className="card-profiles">{cardsProfiles} </div>
-      </div>
-    </>
   );
 }
 
