@@ -1,32 +1,33 @@
 export const getDataProfile = async () => {
-  //const url = `http://localhost:3004/advisers/${id}`;
-  const url = `http://localhost:3004/profiles`;
-  // levantar servidor con json-server --watch db.json
+  const url = `/db.json`;
   let dataProfile = [];
-  const response = await fetch(url);
-  if (response.ok) {
-    const data = await response.json();
-    // dataProfile = [
-    //   ...data.objetc.map((object) => {
-    //     return object;
-    //   }),
-    // ];
-
-    return data;
-  } else {
-    console.error('sin data');
+  try {
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      return data.profiles;
+    } else {
+      console.error('sin data');
+    }
+  } catch (error) {
+    console.error("Error fetching data: ", error);
   }
-
   return dataProfile;
 };
 
 export const getAllDataAdvisers = async () => {
-  const url = `http://localhost:3004/advisers`;
-  const response = await fetch(url);
-  if (response.ok) {
-    const data = await response.json();
-    return data;
-  } else {
-    return [];
+  const url = `/db.json`;
+  try {
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      return data.advisers;
+    } else {
+      console.error('sin data');
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching data: ", error);
   }
+  return [];
 };

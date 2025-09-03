@@ -1,3 +1,4 @@
+
 .calendar{
     background-color:none;   
     display:grid;
@@ -24,45 +25,50 @@
     padding-right: 3px;
     padding-left: 0;
 }
+
+/* --- ESTILOS MODIFICADOS --- */
 .numerW-title {
     background-color: rgb(17, 1, 107);
-    color: rgb(255, 251, 251) ;
-    border-radius: 3px;
-    font-size:13px;
-    padding-left: 1px;
+    color: rgb(255, 251, 251);
+    /* Mas redondeado */
+    border-radius: 25px;
     text-align: center;
-    margin-top: 20%;
+    /* Fuente responsive y con mas espacio (padding) */
+    font-size: clamp(12px, 1.5vw, 16px);
+    padding: 10px 5px;
+    line-height: 1.2;
+    margin: 5px 0;
 }
 
-li.numerW-title{
-    padding: 10%;
-    position: relative;
-}
+/* Se elimina la regla li.numerW-title para simplificar */
 
 .card{
   border: 1px solid black;
 }
 
-
 .firstday{
     grid-column-start: var(--dayStart);
 }
 
+/* --- ESTILOS MODIFICADOS --- */
 .dayLetter{
-background-color: rgb(17, 1, 107);
- border-radius: 2px;
- border: 1px solid rgba(0, 0, 0, 0.486);
- color: rgb(255, 251, 251) ;
- text-align: center;
- word-wrap: break-word;
- 
+    background-color: rgb(17, 1, 107);
+    /* Mas redondeado */
+    border-radius: 8px;
+    color: rgb(255, 251, 251) ;
+    text-align: center;
+    word-wrap: break-word;
+    /* Fuente responsive y con mas espacio (padding) */
+    font-size: clamp(12px, 1.5vw, 14px);
+    padding: 5px;
+    line-height: 1.2;
 }
 
 .card-content {
     display: flex;
     flex-wrap: wrap;
-    position: relative;
-    margin: 50px; /* Agrega un margen de 20px entre los calendarios */
+    justify-content: center; /* Centra las tarjetas */
+    gap: 20px; /* Espacio entre tarjetas */
 }
 .card{
     margin:10px
@@ -72,8 +78,7 @@ background-color: rgb(17, 1, 107);
 }
 
 .weekdays{
-    background-color: none
-    ;
+    background-color: none;
 }
 
 .year-input {
@@ -102,15 +107,22 @@ background-color: rgb(17, 1, 107);
     flex-wrap: wrap;
   }
 
-  .cardcalendario{
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 7px;
-    background: linear-gradient(145deg, #ffffff, #e1e1e6);
-    box-shadow:  1px 1px 3px #a5a5a8,
-                 -1px -1px 3px #ffffff; 
-    margin: 20px;
-                         }
+/* --- ESTILOS MODIFICADOS --- */
+.cardcalendario {
+  display: flex;
+  flex-direction: column; /* Organiza el contenido en una columna */
+  border-radius: 7px;
+  background: linear-gradient(145deg, #ffffff, #e1e1e6);
+  box-shadow: 1px 1px 3px #a5a5a8, -1px -1px 3px #ffffff;
+  margin: 10px;
+  padding: 10px;
+
+  /* Flexibilidad y tamaño mínimo */
+  flex: 1 1 280px; /* flex-grow, flex-shrink, flex-basis */
+  min-width: 280px;
+  max-width: 400px; /* Evita que las tarjetas se hagan demasiado anchas */
+}
+
     .cardprofile{
         display: flex;
         flex-wrap: wrap;
@@ -122,4 +134,3 @@ background-color: rgb(17, 1, 107);
     
 
     }
-      
