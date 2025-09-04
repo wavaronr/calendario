@@ -19,25 +19,24 @@ function Calendarios({ monthCalendario, yearSet, setWeekNumber }) {
 
   const countDays = new Date(yearSet, monthCalendario + 1, 0).getDate();
   const days = Array.from({ length: countDays }, (_, index) => index + 1);
-  const daysTitle = ['Sem', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
+  const daysTitle = ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'];
 
   return (
     <div className="calendar">
+      <WeekCount
+        monthCalendario={monthCalendario}
+        yearSet={yearSet}
+        setWeekNumber={setWeekNumber}
+      />
       <ol className="ol">
         {daysTitle.map((dayL, index) => (
           <li
-            className={`dayLetter ${index === 0 ? 'week-number-header' : ''}`}
+            className={`dayLetter`}
             key={dayL}
           >
             {dayL}
           </li>
         ))}
-
-        <WeekCount
-          monthCalendario={monthCalendario}
-          yearSet={yearSet}
-          setWeekNumber={setWeekNumber}
-        />
 
         {days.map((day) => (
           <DaysCalendar
