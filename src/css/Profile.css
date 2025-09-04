@@ -33,7 +33,7 @@
 }
 
 .profile-card-header {
-  background: #007bff;
+  background: #0e007b;
   color: #fff;
   padding: 1rem;
 }
@@ -66,17 +66,17 @@
 }
 
 .btn-edit {
-  background: #28a745;
+  background: #1a237e;
 }
 
 .btn-edit:hover {
-  background: #218838;
+  background: #1a237e;
 }
 
 .btn-delete {
-  background: #dc3545;
+  background: #3949ab;
 }
 
 .btn-delete:hover {
-  background: #c82333;
+  background: #3949ab;
 }
