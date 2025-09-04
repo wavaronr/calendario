@@ -1,9 +1,10 @@
 import getRandomProfile from "./getRandomProfile";
 
 async function saveRandomDataToJSONServer() {
+  /*
   try {
     // Realizar una solicitud GET previa para verificar si los datos ya existen
-    const response = await fetch(`http://localhost:3001/posts/randomProfiles`);
+    const response = await fetch(`http://localhost:3004/posts/randomProfiles`);
     const existingData = await response.json();
     console.log(Object.keys(existingData).length === 1)
     // Si los datos ya existen, no es necesario hacer otra solicitud PUT
@@ -15,7 +16,7 @@ async function saveRandomDataToJSONServer() {
     // Si los datos no existen, proceder con la solicitud PUT
     else{const jsonData = JSON.stringify(await getRandomProfile());
 
-    await fetch(`http://localhost:3001/posts/randomProfiles`, {
+    await fetch(`http://localhost:3004/posts/randomProfiles`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -28,6 +29,7 @@ async function saveRandomDataToJSONServer() {
   } catch (error) {
     console.error("Error al generar y guardar los datos:", error);
   }
+  */
 }
 
 // Llamar a la función para guardar los datos
